@@ -1,8 +1,11 @@
 package com.project.mine.crawling.service;
 
-import org.springframework.stereotype.Service;
+import java.io.IOException;
 
-@Service
-public class CrawlingService {
+import com.project.mine.crawling.dto.CrawlingDTO;
 
+public interface CrawlingService {
+  public CrawlingDTO checkMall(CrawlingDTO crawlingDTO) throws IOException;
+
+  public boolean checkStock(CrawlingDTO crawlingDTO);
 }

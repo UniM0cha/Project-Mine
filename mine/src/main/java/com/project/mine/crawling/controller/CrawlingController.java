@@ -2,6 +2,7 @@ package com.project.mine.crawling.controller;
 
 import java.io.IOException;
 
+import com.project.mine.crawling.dto.CrawlingDTO;
 import com.project.mine.crawling.service.CrawlingService;
 
 import org.jsoup.Jsoup;
@@ -32,12 +33,10 @@ public class CrawlingController {
   @PostMapping("/crawl")
   public String crawl(String url, Model model) throws IOException {
     log.info("=======================> crawling url...: " + url);
-    Document document = Jsoup.connect(url).get();
 
-    Elements element = document.select(".oos-label");
-    String oosText = element.text();
-    log.info("oos-label: " + oosText);
-    model.addAttribute("isStock", oosText.equals("품절") ? "품절" : "구매가능");
+    CrawlingDTO crawlingDTO = new CrawlingDTO();
+    crawlingDTO.setUrl(url);
+    crawlingService.checkMall(crawlingDTO);
     return "index";
   }
 }
