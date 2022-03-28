@@ -1,5 +1,7 @@
 package com.project.mine.crawling.mall;
 
+import org.jsoup.nodes.Document;
+
 public interface MallCrawling {
-  public boolean isStock(String url);
+  public int isStock(Document document);
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,12 +32,21 @@ public class CrawlingController {
   }
 
   @PostMapping("/crawl")
-  public String crawl(String url, Model model) throws IOException {
-    log.info("=======================> crawling url...: " + url);
+  public String crawl(CrawlingDTO crawlingDTO, Model model) throws IOException {
+    String url = crawlingDTO.getUrl();
+    log.info("요청한 url: " + url);
 
-    CrawlingDTO crawlingDTO = new CrawlingDTO();
-    crawlingDTO.setUrl(url);
-    crawlingService.checkMall(crawlingDTO);
+    int mallResultCode = crawlingService.checkMall(crawlingDTO);
+    log.info("checkMall 결과코드: " + mallResultCode + " / MallType: " + crawlingDTO.getMallType());
+
+    if (mallResultCode == 0) {
+      model.addAttribute("mall", crawlingDTO.getMallType());
+      int stockResultCode = crawlingService.checkStock(crawlingDTO);
+      if (stockResultCode == 0)
+        model.addAttribute("stockCode", "재고 있음");
+      else if (stockResultCode == 1)
+        model.addAttribute("stockCode", "재고 없음");
+    }
     return "index";
   }
 }

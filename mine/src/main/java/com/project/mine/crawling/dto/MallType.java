@@ -1,6 +1,6 @@
 package com.project.mine.crawling.dto;
 
-enum MallType {
+public enum MallType {
   Coupang,
   Naver,
 }
