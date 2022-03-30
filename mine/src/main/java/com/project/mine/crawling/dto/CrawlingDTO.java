@@ -11,5 +11,4 @@ public class CrawlingDTO {
   private String url;
   private MallType mallType;
   private StockStatus stockStatus;
-  private Document document;
 }

@@ -1,18 +1,16 @@
 package com.project.mine.crawling.controller;
 
-import java.io.IOException;
-
+import com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
 import com.project.mine.crawling.dto.CrawlingDTO;
+import com.project.mine.crawling.dto.MallType;
+import com.project.mine.crawling.dto.StockStatus;
 import com.project.mine.crawling.service.CrawlingService;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,26 +25,29 @@ public class CrawlingController {
   }
 
   @GetMapping("/")
-  public String main() {
+  public String home() {
     return "index";
   }
 
   @PostMapping("/crawl")
-  public String crawl(CrawlingDTO crawlingDTO, Model model) throws IOException {
+  public String handleUrl(CrawlingDTO crawlingDTO, Model model) {
     String url = crawlingDTO.getUrl();
     log.info("요청한 url: " + url);
 
-    int mallResultCode = crawlingService.checkMall(crawlingDTO);
-    log.info("checkMall 결과코드: " + mallResultCode + " / MallType: " + crawlingDTO.getMallType());
+    MallType mallType = crawlingService.checkMall(url);
 
-    if (mallResultCode == 0) {
-      model.addAttribute("mall", crawlingDTO.getMallType());
-      int stockResultCode = crawlingService.checkStock(crawlingDTO);
-      if (stockResultCode == 0)
-        model.addAttribute("stockCode", "재고 있음");
-      else if (stockResultCode == 1)
-        model.addAttribute("stockCode", "재고 없음");
+    if (mallType != MallType.Unknown) {
+
+      crawlingDTO.setMallType(mallType);
+      StockStatus stockStatus = crawlingService.checkStock(url, mallType);
+
+      if (stockStatus != StockStatus.Unknown) {
+
+        crawlingDTO.setStockStatus(stockStatus);
+      }
     }
+    model.addAttribute("crawl", crawlingDTO);
     return "index";
+    // throw new Error("유효하지 않은 URL");
   }
 }
