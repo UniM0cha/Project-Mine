@@ -2,8 +2,6 @@ package com.project.mine.crawling.mall;
 
 import com.project.mine.crawling.dto.StockStatus;
 
-import org.jsoup.nodes.Document;
-
 public class NaverCrawling implements MallCrawling {
 
   @Override

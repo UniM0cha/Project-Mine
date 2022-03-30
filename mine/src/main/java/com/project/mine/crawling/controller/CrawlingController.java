@@ -1,12 +1,10 @@
 package com.project.mine.crawling.controller;
 
-import com.fasterxml.jackson.databind.deser.std.StringCollectionDeserializer;
 import com.project.mine.crawling.dto.CrawlingDTO;
 import com.project.mine.crawling.dto.MallType;
 import com.project.mine.crawling.dto.StockStatus;
 import com.project.mine.crawling.service.CrawlingService;
 
-import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
