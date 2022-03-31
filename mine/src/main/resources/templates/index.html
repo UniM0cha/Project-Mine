@@ -3,10 +3,10 @@
   layout:decorate="~{layouts/layout.html}">
 <div>
   <form action="/crawl" method="post">
-    <input type="text" name="url" style="width: 800px;">
+    <input type="text" name="url" style="width: 1000px;">
     <input type="submit" value="확인">
   </form>
-  <div th:text="${crawl.mallType} + ' / ' + ${crawl.stockStatus}"></div>
+  <div th:if="${crawl != null} "th:text="${crawl.mallType} + ' / ' + ${crawl.stockStatus}"></div>
 </div>
 
 </html>

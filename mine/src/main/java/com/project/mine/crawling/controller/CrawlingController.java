@@ -46,6 +46,5 @@ public class CrawlingController {
     }
     model.addAttribute("crawl", crawlingDTO);
     return "index";
-    // throw new Error("유효하지 않은 URL");
   }
 }
