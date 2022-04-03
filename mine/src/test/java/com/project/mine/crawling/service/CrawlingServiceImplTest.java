@@ -7,15 +7,22 @@ import com.project.mine.crawling.dto.StockStatus;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 
 public class CrawlingServiceImplTest {
+
+  private final CrawlingService crawlingService;
 
   @Nested
   class testCheckMall {
     @Test
     void 쿠팡_모바일() {
       String url = "https://m.coupang.com/vm/products/2228437830?itemId=3801622640&q=라스텔라%20성경&searchId=149552130c0f4b089514bd911e4b7fa8";
-      CrawlingService crawlingService = new CrawlingServiceImpl();
+      // CrawlingService crawlingService = new CrawlingServiceImpl();
       MallType mallType = crawlingService.checkMall(url);
       assertEquals(MallType.Coupang, mallType);
     }
