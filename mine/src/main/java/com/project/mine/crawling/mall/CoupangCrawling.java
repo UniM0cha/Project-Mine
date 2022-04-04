@@ -51,11 +51,16 @@ public class CoupangCrawling implements MallCrawling {
 
         if (isExistDB(pageId, itemId)) {
           // TODO: 사용자 알림에 추가하는 로직 추가
+          addUserNotice();
+          /**
+           * 사용자 알림에 추가한다?
+           * 페이지 id와 아이템 id를 가져와서
+           */
         }
         // 없으면 데이터베이스 추가
         else {
           // TODO: 크롤링 데이터베이스에 추가하는 로직 추가
-          addCrawlCoupang();
+          addCrawlCoupang(pageId, itemId);
           // TODO: 사용자 알림에 추가하는 로직 추가
           addUserNotice();
         }
@@ -127,7 +132,13 @@ public class CoupangCrawling implements MallCrawling {
     return true;
   }
 
-  private void addCrawlCoupang() {
+  private void addCrawlCoupang(String pageId, String itemId) {
+    /**
+     * 크롤링 데이터베이스에 추가한다?
+     * = 스케줄링을 통해서 크롤링 테이블에 있는 요소들을 싹 한번 훑을건데
+     * 그때 어떻게 해야 잘 넣을 수 있을까
+     * = 크롤링은 일단 쿠팡에서는 URI만 제공이 되면 된다.
+     */
 
   }
 
