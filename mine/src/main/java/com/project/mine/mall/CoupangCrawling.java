@@ -1,4 +1,4 @@
-package com.project.mine.crawling.mall;
+package com.project.mine.mall;
 
 import java.io.IOException;
 import java.net.URL;
@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.databind.deser.impl.CreatorCandidate.Param;
 import com.fasterxml.jackson.databind.node.BooleanNode;
-import com.project.mine.crawling.dto.StockStatus;
+import com.project.mine.dto.StockStatus;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

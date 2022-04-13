@@ -1,6 +1,6 @@
-package com.project.mine.crawling.repository;
+package com.project.mine.repository;
 
-import com.project.mine.crawling.entity.Crawl;
+import com.project.mine.domain.Crawl;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

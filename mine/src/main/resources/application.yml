@@ -16,8 +16,34 @@ spring:
         '[use_sql_comments]': false
         '[naming.physical-strategy]': org.hibernate.boot.model.naming.SpringPhysicalNamingStrategy
 
+  output:
+    ansi:
+      enabled: always
+
   thymeleaf:
     cache: false
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ce2fd11fbdb6dd36277186d8cb1991f8
+            redirect-uri: 'http://localhost:8080/login/oauth2/code/kakao'
+            client-authentication-method: POST
+            authorization-grant-type: authorization_code
+            scope: profile_nickname, profile_image, account_email
+            client-name: Kakao
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+  profiles:
+    include:
+      - oauth
 
 logging:
   level:
@@ -25,4 +51,5 @@ logging:
     # '[org.thymeleaf.TemplateEngine]': info
     # '[org.springframework.boot.autoconfigure.logging]': info
     # '[org.apache.coyote.http11.Http11InputBuffer]': debug
-    # '[org.springframework.security]': debug
+    '[org.springframework.security]': debug
+    '[org.springframework.web]': debug

@@ -1,6 +1,6 @@
-package com.project.mine.crawling.mall;
+package com.project.mine.mall;
 
-import com.project.mine.crawling.dto.StockStatus;
+import com.project.mine.dto.StockStatus;
 
 public class NaverCrawling implements MallCrawling {
 

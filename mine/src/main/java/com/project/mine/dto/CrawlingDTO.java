@@ -1,4 +1,4 @@
-package com.project.mine.crawling.dto;
+package com.project.mine.dto;
 
 import lombok.Getter;
 import lombok.Setter;

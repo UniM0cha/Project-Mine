@@ -1,7 +1,7 @@
-package com.project.mine.crawling.service;
+package com.project.mine.service;
 
-import com.project.mine.crawling.dto.MallType;
-import com.project.mine.crawling.dto.StockStatus;
+import com.project.mine.dto.MallType;
+import com.project.mine.dto.StockStatus;
 
 public interface CrawlingService {
 

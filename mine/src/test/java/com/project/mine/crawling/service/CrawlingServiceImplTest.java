@@ -2,20 +2,23 @@ package com.project.mine.crawling.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.project.mine.crawling.dto.MallType;
-import com.project.mine.crawling.dto.StockStatus;
+import com.project.mine.dto.MallType;
+import com.project.mine.dto.StockStatus;
+import com.project.mine.service.CrawlingService;
+import com.project.mine.service.CrawlingServiceImpl;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-
+@SpringBootTest
 public class CrawlingServiceImplTest {
 
-  private final CrawlingService crawlingService;
+  @Autowired
+  private CrawlingService crawlingService;
 
   @Nested
   class testCheckMall {

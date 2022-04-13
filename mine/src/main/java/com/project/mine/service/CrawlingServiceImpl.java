@@ -1,13 +1,13 @@
-package com.project.mine.crawling.service;
+package com.project.mine.service;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.project.mine.crawling.dto.MallType;
-import com.project.mine.crawling.dto.StockStatus;
-import com.project.mine.crawling.mall.CoupangCrawling;
-import com.project.mine.crawling.mall.MallCrawling;
-import com.project.mine.crawling.mall.NaverCrawling;
+import com.project.mine.dto.MallType;
+import com.project.mine.dto.StockStatus;
+import com.project.mine.mall.CoupangCrawling;
+import com.project.mine.mall.MallCrawling;
+import com.project.mine.mall.NaverCrawling;
 
 import org.springframework.stereotype.Service;
 

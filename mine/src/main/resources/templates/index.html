@@ -7,6 +7,7 @@
     <input type="submit" value="확인">
   </form>
   <div th:if="${crawl != null} "th:text="${crawl.mallType} + ' / ' + ${crawl.stockStatus}"></div>
+  <button onclick="location.href='/auth/logout'">로그아웃</button>
 </div>
 
 </html>

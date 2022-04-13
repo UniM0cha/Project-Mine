@@ -1,26 +1,24 @@
-package com.project.mine.crawling.controller;
+package com.project.mine.controller;
 
-import com.project.mine.crawling.dto.CrawlingDTO;
-import com.project.mine.crawling.dto.MallType;
-import com.project.mine.crawling.dto.StockStatus;
-import com.project.mine.crawling.service.CrawlingService;
+import com.project.mine.dto.CrawlingDTO;
+import com.project.mine.dto.MallType;
+import com.project.mine.dto.StockStatus;
+import com.project.mine.service.CrawlingService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+@RequiredArgsConstructor
 public class CrawlingController {
 
-  CrawlingService crawlingService;
-
-  public CrawlingController(CrawlingService crawlingService) {
-    this.crawlingService = crawlingService;
-  }
+  private final CrawlingService crawlingService;
 
   @GetMapping("/")
   public String home() {
