@@ -14,19 +14,6 @@ public class AuthController {
 
     @GetMapping("/login")
     public String loginPage() {
-        log.info("=========> login page");
         return "/auth/login";
     }
-
-    // @GetMapping("/logout")
-    // public String logoutPage() {
-    // log.info("=========> logout page");
-    // return "/auth/logout";
-    // }
-
-    // @GetMapping("/login/kakao")
-    // public String kakoRedirect(Model model) {
-    // log.info("hello2");
-    // return "index";
-    // }
 }

@@ -2,8 +2,9 @@ package com.project.mine.auth.userinfo;
 
 import java.util.Map;
 
-import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class KakaoUserInfo implements OAuth2UserInfo {
     private Map<String, Object> attributes;
     private Map<String, Object> attributesAccount;
@@ -25,6 +26,7 @@ public class KakaoUserInfo implements OAuth2UserInfo {
          * email=이메일}
          * }
          */
+        log.info("===========> attributes: " + attributes);
 
         this.attributes = attributes;
         this.attributesAccount = (Map<String, Object>) attributes.get("kakao_account");
@@ -43,18 +45,32 @@ public class KakaoUserInfo implements OAuth2UserInfo {
 
     @Override
     public String getProviderId() {
-        attributes.get("id").toString();
-        return null;
+        return attributes.get("id").toString();
     }
 
     @Override
     public String getEmail() {
-        return attributesAccount.get("email").toString();
+        try {
+            return attributesAccount.get("email").toString();
+        } catch (NullPointerException e) {
+            log.info("이메일 수집 거부");
+            return null;
+        }
     }
 
     @Override
     public String getName() {
         return attributesProfile.get("nickname").toString();
+    }
+
+    @Override
+    public String getProfileImg() {
+        try {
+            return attributesProfile.get("profile_image_url").toString();
+        } catch (NullPointerException e) {
+            log.info("프로필 사진 수집 거부");
+            return null;
+        }
     }
 
 }

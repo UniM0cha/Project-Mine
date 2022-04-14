@@ -3,6 +3,7 @@ package com.project.mine.domain;
 import javax.persistence.Embeddable;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Embeddable
 @Getter

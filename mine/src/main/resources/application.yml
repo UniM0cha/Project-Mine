@@ -9,7 +9,8 @@ spring:
     show-sql: true
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
+      # ddl-auto: update
     properties:
       hibernate:
         '[format_sql]': true
@@ -51,5 +52,5 @@ logging:
     # '[org.thymeleaf.TemplateEngine]': info
     # '[org.springframework.boot.autoconfigure.logging]': info
     # '[org.apache.coyote.http11.Http11InputBuffer]': debug
-    '[org.springframework.security]': debug
+    # '[org.springframework.security]': debug
     '[org.springframework.web]': debug

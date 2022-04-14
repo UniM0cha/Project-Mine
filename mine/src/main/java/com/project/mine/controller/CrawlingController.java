@@ -1,9 +1,14 @@
 package com.project.mine.controller;
 
+import java.security.Principal;
+import java.util.UUID;
+
+import com.project.mine.domain.User;
 import com.project.mine.dto.CrawlingDTO;
 import com.project.mine.dto.MallType;
 import com.project.mine.dto.StockStatus;
 import com.project.mine.service.CrawlingService;
+import com.project.mine.service.UserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +24,21 @@ import lombok.extern.slf4j.Slf4j;
 public class CrawlingController {
 
   private final CrawlingService crawlingService;
+  private final UserService userService;
 
   @GetMapping("/")
-  public String home() {
+  public String home(Principal principal) {
+    log.info("========= principal.getName() ======> " + principal.getName());
+    String userId = principal.getName();
+    String email = userService.getEmail(userId);
+    log.info("========== email =========> " + email);
     return "index";
   }
 
   @PostMapping("/crawl")
   public String handleUrl(CrawlingDTO crawlingDTO, Model model) {
     String url = crawlingDTO.getUrl();
-    log.info("=============== 요청한 url ==========> " + url);
+    log.info("========= 요청한 url ==========> " + url);
 
     MallType mallType = crawlingService.checkMall(url);
     /**

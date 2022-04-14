@@ -1,0 +1,43 @@
+// 카카오 전체 동의
+{
+    id=2198728773,
+    connected_at=2022-04-12T10:51:08Z,
+    properties = {
+        nickname=이정윤,
+        profile_image=http://k.kakaocdn.net/dn/doVXDm/btrxyi1QcSk/FrlxSsh9zDVbsVkPkYPYLK/m1.jpg,
+        thumbnail_image=http://k.kakaocdn.net/dn/doVXDm/btrxyi1QcSk/FrlxSsh9zDVbsVkPkYPYLK/p1.jpg
+    },
+    kakao_account={
+        profile_nickname_needs_agreement=false,
+        profile_image_needs_agreement=false,
+        profile={
+            nickname=이정윤,
+            thumbnail_image_url=http://k.kakaocdn.net/dn/doVXDm/btrxyi1QcSk/FrlxSsh9zDVbsVkPkYPYLK/p1.jpg,
+            profile_image_url=http://k.kakaocdn.net/dn/doVXDm/btrxyi1QcSk/FrlxSsh9zDVbsVkPkYPYLK/m1.jpg,
+            is_default_image=false
+        },
+        has_email=true,
+        email_needs_agreement=false,
+        is_email_valid=true,
+        is_email_verified=true,
+        email=solst_ice@naver.com
+    }
+}
+
+// 카카오 이메일, 프로필 사진 수집 거부
+{
+    id=2198728773,
+    connected_at=2022-04-14T03:08:14Z,
+    properties={
+        nickname=이정윤
+    },
+    kakao_account={
+        profile_nickname_needs_agreement=false,
+        profile_image_needs_agreement=true,
+        profile={
+            nickname=이정윤
+        },
+        has_email=true,
+        email_needs_agreement=true
+    }
+}
