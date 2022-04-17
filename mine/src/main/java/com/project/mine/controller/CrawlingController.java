@@ -26,15 +26,6 @@ public class CrawlingController {
   private final CrawlingService crawlingService;
   private final UserService userService;
 
-  @GetMapping("/")
-  public String home(Principal principal) {
-    log.info("========= principal.getName() ======> " + principal.getName());
-    String userId = principal.getName();
-    String email = userService.getEmail(userId);
-    log.info("========== email =========> " + email);
-    return "index";
-  }
-
   @PostMapping("/crawl")
   public String handleUrl(CrawlingDTO crawlingDTO, Model model) {
     String url = crawlingDTO.getUrl();

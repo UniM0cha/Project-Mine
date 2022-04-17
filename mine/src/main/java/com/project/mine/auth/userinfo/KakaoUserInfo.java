@@ -5,6 +5,7 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@SuppressWarnings("unchecked")
 public class KakaoUserInfo implements OAuth2UserInfo {
     private Map<String, Object> attributes;
     private Map<String, Object> attributesAccount;
@@ -26,7 +27,7 @@ public class KakaoUserInfo implements OAuth2UserInfo {
          * email=이메일}
          * }
          */
-        log.info("===========> attributes: " + attributes);
+        // log.info("===========> attributes: " + attributes);
 
         this.attributes = attributes;
         this.attributesAccount = (Map<String, Object>) attributes.get("kakao_account");

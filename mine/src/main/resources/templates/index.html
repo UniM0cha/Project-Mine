@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layouts/layout.html}">
-<div>
-  <form action="/crawl" method="post">
-    <input type="text" name="url" style="width: 1000px;">
-    <input type="submit" value="확인">
-  </form>
-  <div th:if="${crawl != null} "th:text="${crawl.mallType} + ' / ' + ${crawl.stockStatus}"></div>
-  <button onclick="location.href='/auth/logout'">로그아웃</button>
-</div>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="/js/crawling.js"></script>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <img src="/img/wheres_mine_저화질.png">
+    <form action="/crawl" method="post">
+      <input type="text" name="url" style="width: 500px;">
+      <input type="submit" value="확인">
+    </form>
+    <div th:if="${crawl != null} " th:text="${crawl.mallType} + ' / ' + ${crawl.stockStatus}"></div>
+    <button onclick="location.href='/auth/logout'">로그아웃</button>
+  </div>
+</body>
 
 </html>
